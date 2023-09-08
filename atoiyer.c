@@ -17,23 +17,14 @@ char *get_int(int num)
 	length = get_numbase_len(temp, 10);
 
 	if (num < 0 || num_l < 0)
-    {
 		length++; /* negative sign */
-    }
+	ret = malloc(length + 1); /* create new string */
+	if (!ret)
+		return (NULL);
 
-    ret = malloc(length + 1); /* create new string */
-	
-    if (!ret)
-	{
-    	return (NULL);
-    }
-	
-    fill_numbase_buff(temp, 10, ret, length);
-	
-    if (num < 0 || num_l < 0)
-	{
-    	ret[0] = '-';
-    }
+	fill_numbase_buff(temp, 10, ret, length);
+	if (num < 0 || num_l < 0)
+		ret[0] = '-';
 
 	return (ret);
 }
@@ -47,11 +38,8 @@ char *get_int(int num)
 unsigned int _abs(int i)
 {
 	if (i < 0)
-    {
 		return (-(unsigned int)i);
-    }
-
-    return ((unsigned int)i);
+	return ((unsigned int)i);
 }
 
 /**
@@ -70,7 +58,6 @@ int get_numbase_len(unsigned int num, unsigned int base)
 		len++;
 		num /= base;
 	}
-
 	return (len);
 }
 
@@ -83,10 +70,8 @@ int get_numbase_len(unsigned int num, unsigned int base)
  *
  * Return: always void.
  */
-void fill_numbase_buff(unsigned int num,
-                        unsigned int base,
-                        char *buff,
-                        int buff_size)
+void fill_numbase_buff(unsigned int num, unsigned int base,
+			char *buff, int buff_size)
 {
 	int rem, i = buff_size - 1;
 
@@ -94,17 +79,11 @@ void fill_numbase_buff(unsigned int num,
 	while (i >= 0)
 	{
 		rem = num % base;
-
 		if (rem > 9) /* return lowercase ascii val representation */
-        {
 			buff[i] = rem + 87; /* 10 will be a, 11 = b, ... */
-        }
-        else
-		{
-        	buff[i] = rem + '0';
-        }
-
-        num /= base;
+		else
+			buff[i] = rem + '0';
+		num /= base;
 		i--;
 	}
 }

@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 
 /**
  * free_tokens - Frees the global op_toks array of strings.

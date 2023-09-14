@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * monty_nop - Does absolutely nothing for the Monty opcode 'nop'.

@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * pop_error - Prints pop error messages for empty stacks.

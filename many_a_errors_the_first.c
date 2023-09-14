@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * usage_error - Prints usage error messages.
